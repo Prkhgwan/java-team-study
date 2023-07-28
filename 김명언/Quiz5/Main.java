@@ -1,4 +1,4 @@
-package 팀장문제.김명언.Quiz4;
+package 팀장문제.김명언.Quiz5;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +9,12 @@ class cowsays {
     String cowsay;
     String author;
 }
-
 class CRUD {
     List<cowsays> thecowsay  = new ArrayList<cowsays>();
+    Scanner input = new Scanner(System.in);
 
     public void insert() {
         cowsays says = new cowsays();
-        Scanner input = new Scanner(System.in);
 
         int no=thecowsay.size()+1;
         System.out.println("명언 : ");
@@ -37,7 +36,14 @@ class CRUD {
         }
     }
 
+    public void delete() {
+        System.out.println("삭제할 정보 id를 입력해 주세요.");
+        int number = input.nextInt();
+        thecowsay.remove(number-1);
+        System.out.println(number + "번 명언이 삭제되었습니다.");
+    }
 }
+
 
 public class Main {
     public static void main(String[] args) {
@@ -64,8 +70,10 @@ public class Main {
                     System.out.println("==================");
                     crud.read();
                     break;
+                case "삭제":
+                    crud.delete();
+                    break;
             }
         }
     }
 }
-
